@@ -5,9 +5,9 @@
     <button @click="setSelectedComponent('MangeGoals')">Mange goals</button>
     <!-- <ActiveGoals v-if="selectedComponent ==='ActiveGoals' " />
     <MangeGoals v-else/> -->
-    <component :is="selectedComponent">
-
-    </component>
+    <keep-alive>
+      <component :is="selectedComponent" />
+    </keep-alive>
   </div>
 </template>
 
@@ -30,20 +30,19 @@ export default {
   },
   data() {
     return {
-      selectedComponent:'ActiveGoals',
+      selectedComponent: 'ActiveGoals',
       activeUser: {
-
         name: 'Maximilian Schwarzmüller',
         description: 'Site owner and admin',
         role: 'admin',
       },
     };
   },
-  methods:{
-    setSelectedComponent(cmp){
-      this.selectedComponent = cmp
-    }
-  }
+  methods: {
+    setSelectedComponent(cmp) {
+      this.selectedComponent = cmp;
+    },
+  },
 };
 </script>
 
